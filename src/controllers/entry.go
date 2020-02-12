@@ -12,7 +12,7 @@ import (
 
 func init(){
 	gin.SetMode(gin.DebugMode) //全局设置环境，此为开发环境，线上环境为gin.ReleaseMode
-	if _, err := toml.DecodeFile("conf/config.toml", &constant.Config); err != nil {
+	if _, err := toml.DecodeFile("./conf/config.toml", &constant.Config); err != nil {
 		log.Fatalln(err)
 	}
 	constant.DbConnection = fmt.Sprintf("%s:%s@(%s:%s)/%s?parseTime=%s",
