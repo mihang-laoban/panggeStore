@@ -1,6 +1,9 @@
 package constant
 
-type ItemJson struct {
+import "github.com/jinzhu/gorm"
+
+type Item struct {
+	gorm.Model
 	Cid string
 	Pid int
 	Cname string
@@ -13,21 +16,10 @@ type ItemJson struct {
 	Note string
 }
 
-type ProductJson struct {
-	classification string
-	tid int
-	items ItemJson
-}
-
 type ResJson struct {
 	Header struct {
 		Code int    `json:"code"`
 		Msg  string `json:"msg"`
 	} `json:"header"`
 	Body [] interface{} `json:"body"`
-}
-
-type Ids struct {
-	Cid int
-	Pid int
 }

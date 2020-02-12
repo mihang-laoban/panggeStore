@@ -1,21 +1,20 @@
 package db
 
 import (
-	"database/sql"
-	"log"
+	"github.com/jinzhu/gorm"
 	"test/src/constant"
+	"time"
 )
 
-func ConnectDB() *sql.DB {
-	db, err1 := sql.Open("mysql", constant.DbConnection)
-	if err1 != nil{
-		log.Fatalln(err1)
+//noinspection ALL
+func ConnectDbOrm() *gorm.DB {
+	db, err := gorm.Open("mysql", constant.DbConnection)
+	db.DB().SetConnMaxLifetime(30 * time.Second)
+	db.DB().SetMaxIdleConns(20)
+	db.DB().SetMaxOpenConns(20)
+	if err != nil {
+		panic("failed to connect database")
 	}
-	db.SetMaxIdleConns(20)
-	db.SetMaxOpenConns(20)
 
-	if err2 := db.Ping(); err2 != nil{
-		log.Fatalln(err2)
-	}
 	return db
 }

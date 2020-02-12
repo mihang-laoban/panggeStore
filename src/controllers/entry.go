@@ -46,7 +46,6 @@ func registerMiddleware(router *gin.Engine)  {
 func registerHandler(router *gin.Engine)  {
 	//注册接口
 	router.GET("/server/get", GetHandler)
-	router.POST("/server/post", PostHandler)
 	router.POST("/api/home/products", ProductHandler)
 	router.PUT("/server/put", PutHandler)
 	router.DELETE("/server/delete", DeleteHandler)
