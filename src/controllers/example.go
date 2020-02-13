@@ -17,12 +17,12 @@ func GetHandler(c *gin.Context) {
 	//}
 	//c.Data(http.StatusOK, "text/plain", []byte(fmt.Sprintf("get success! %s %s\n", value1, value2)))
 	type JsonHolder struct {
-		Id   string    `json:"id"`
-		Name string `json:"name"`
+		Code int `json:"code"`
+		Msg string `json:"msg"`
 	}
 	var resJson JsonHolder
-	resJson.Id = "ok"
-	resJson.Name = "tar"
+	resJson.Code = 200
+	resJson.Msg = "Hello World"
 	c.JSON(http.StatusOK, resJson)
 }
 
