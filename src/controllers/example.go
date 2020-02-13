@@ -1,22 +1,29 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 func GetHandler(c *gin.Context) {
-	var value string
-	value1, exist1 := c.GetQuery("key")
-	value2, exist2 := c.GetQuery("test")
-	if !exist1 && !exist2 {
-		value = "the key is not exist!"
+	//var value string
+	//value1, exist1 := c.GetQuery("key")
+	//value2, exist2 := c.GetQuery("test")
+	//if !exist1 && !exist2 {
+	//	value = "the key is not exist!"
+	//}
+	//if value != "" {
+	//	c.Data(http.StatusOK, "text/plain", []byte(fmt.Sprintf("get success! %s \n", value)))
+	//}
+	//c.Data(http.StatusOK, "text/plain", []byte(fmt.Sprintf("get success! %s %s\n", value1, value2)))
+	type JsonHolder struct {
+		Id   string    `json:"id"`
+		Name string `json:"name"`
 	}
-	if value != "" {
-		c.Data(http.StatusOK, "text/plain", []byte(fmt.Sprintf("get success! %s \n", value)))
-	}
-	c.Data(http.StatusOK, "text/plain", []byte(fmt.Sprintf("get success! %s %s\n", value1, value2)))
+	var resJson JsonHolder
+	resJson.Id = "ok"
+	resJson.Name = "tar"
+	c.JSON(http.StatusOK, resJson)
 }
 
 func PostHandlerTest(c *gin.Context) {
