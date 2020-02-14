@@ -39,6 +39,7 @@ func Run() {
 
 func registerMiddleware(router *gin.Engine)  {
 	//添加中间件
+	router.Use(middleware.CorsHeader())
 	router.Use(middleware.Middleware)
 	router.Use(middleware.MyMid)
 }
