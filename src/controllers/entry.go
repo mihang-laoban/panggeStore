@@ -51,3 +51,4 @@ func registerHandler(router *gin.Engine)  {
 	router.PUT("/server/put", PutHandler)
 	router.DELETE("/server/delete", DeleteHandler)
 }
+

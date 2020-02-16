@@ -2,7 +2,7 @@ package constant
 
 import "github.com/jinzhu/gorm"
 
-type Item struct {
+type Menu struct {
 	gorm.Model
 	Cid string
 	Pid int

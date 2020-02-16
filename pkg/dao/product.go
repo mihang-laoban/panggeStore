@@ -8,6 +8,6 @@ import (
 
 func ProductListOrm() *gorm.DB {
 	db := DB.ConnectDbOrm()
-	db.AutoMigrate(&constant.Item{})
+	db.AutoMigrate(&constant.Menu{})
 	return db
 }
